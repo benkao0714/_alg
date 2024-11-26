@@ -1,0 +1,33 @@
+# 方法 a：直接使用指數運算
+def power2n_a(n):
+    return 2**n
+
+# 方法 b：用遞迴（有誤的邏輯）
+def power2n_b(n):
+    if n == 0:
+        return 1
+    return 2 * power2n_b(n-1)  
+
+# 方法 c：正確的遞迴
+def power2n_c(n):
+    if n == 0:
+        return 1
+    return 2 * power2n_c(n-1)
+
+# 方法 d：遞迴 + 查表（記憶化）
+cache = [None] * 10000  
+cache[0] = 1  
+
+def power2n_d(n):
+    if n < 0:
+        raise ValueError("n must be non-negative")
+    if cache[n] is not None: 
+        return cache[n]
+    cache[n] = 2 * power2n_d(n-1) 
+    return cache[n]
+
+print('power2n_a(10) =', power2n_a(10))
+print('power2n_b(10) =', power2n_b(10))
+print('power2n_c(10) =', power2n_c(10))
+print('power2n_d(10) =', power2n_d(10))
+print('power2n_d(40) =', power2n_d(40))
