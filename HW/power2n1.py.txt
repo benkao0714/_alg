@@ -6,7 +6,7 @@ def power2n_a(n):
 def power2n_b(n):
     if n == 0:
         return 1
-    return 2 * power2n_b(n-1)  
+    return 2 * power2n_b(n-1)  # 修正邏輯，避免多餘的加法
 
 # 方法 c：正確的遞迴
 def power2n_c(n):
@@ -15,17 +15,18 @@ def power2n_c(n):
     return 2 * power2n_c(n-1)
 
 # 方法 d：遞迴 + 查表（記憶化）
-cache = [None] * 10000  
-cache[0] = 1  
+cache = [None] * 10000  # 預先建立一個緩存表
+cache[0] = 1  # 設定基底值
 
 def power2n_d(n):
     if n < 0:
         raise ValueError("n must be non-negative")
-    if cache[n] is not None: 
+    if cache[n] is not None:  # 若已有結果，直接返回
         return cache[n]
-    cache[n] = 2 * power2n_d(n-1) 
+    cache[n] = 2 * power2n_d(n-1)  # 記憶化計算
     return cache[n]
 
+# 測試結果
 print('power2n_a(10) =', power2n_a(10))
 print('power2n_b(10) =', power2n_b(10))
 print('power2n_c(10) =', power2n_c(10))
