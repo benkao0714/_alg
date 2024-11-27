@@ -1,0 +1,23 @@
+import numpy as np
+
+# 定義函數
+def integrand(x, y, z):
+    return 3 * x**2 + y**2 + 2 * z
+
+# 蒙地卡羅積分實現
+def monte_carlo_integration(samples):
+    x = np.random.uniform(0, 1, samples)
+    y = np.random.uniform(0, 1, samples)
+    z = np.random.uniform(0, 1, samples)
+    values = integrand(x, y, z)
+    return np.mean(values)
+
+# 設定樣本數
+n_monte_carlo = 100000  # 隨機生成 100,000 點
+
+# 計算積分
+monte_carlo_result = monte_carlo_integration(n_monte_carlo)
+print("蒙地卡羅法結果：", monte_carlo_result)
+
+
+# 蒙地卡羅法結果： 2.334762617628388
