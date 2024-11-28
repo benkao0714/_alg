@@ -1,0 +1,40 @@
+import threading
+
+def run_with_timeout(func, args=(), timeout=5):
+    """
+    執行程式並設置超時。
+    func: 要執行的函數。
+    args: 函數的參數（tuple）。
+    timeout: 超時秒數。
+    """
+    result = {"finished": False}
+
+    def wrapper():
+        try:
+            func(*args)
+            result["finished"] = True
+        except Exception as e:
+            print(f"Error occurred: {e}")
+
+    # 啟動執行緒來執行程式
+    thread = threading.Thread(target=wrapper)
+    thread.start()
+    thread.join(timeout)
+
+    # 如果執行緒還活著，代表超時了
+    if thread.is_alive():
+        return False  # 判定為不會停
+    return result["finished"]
+
+# 測試的目標函數
+def infinite_loop():
+    while True:
+        pass  # 無窮迴圈
+
+def simple_function(n):
+    return n * n
+
+# 主程式
+if __name__ == "__main__":
+    print("測試 simple_function 是否停:", run_with_timeout(simple_function, args=(5,), timeout=2))
+    print("測試 infinite_loop 是否停:", run_with_timeout(infinite_loop, timeout=2))
