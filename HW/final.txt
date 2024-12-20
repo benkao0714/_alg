@@ -1,0 +1,8 @@
+習題1 請用查表法加速:https://github.com/benkao0714/_alg/blob/master/HW/power2n1(先由老師範例觀察而得，再用chatgpt進行改編)
+習題2 請寫出自己的排列程式:https://github.com/benkao0714/_alg/blob/master/HW/myPermutation(先由老師範例觀察而得，再用chatgpt進行改編)
+習題3 請寫出下列函數的梯度算式:https://github.com/benkao0714/_alg/blob/master/HW/梯度.jpg(由課本得到算法)
+習題4 請用黎曼積分和蒙地卡羅法，分別寫程式計算下列函數的積分:Riemann integral:https://github.com/benkao0714/_alg/blob/master/HW/Riemann(先由老師範例觀察而得，再用chatgpt進行改編)
+							     Monte Carlo method:https://github.com/benkao0714/_alg/blob/master/HW/Monte(先由老師範例觀察而得，再用chatgpt進行改編)
+習題5 請寫一個程式判斷另一個程式會不會停:halt:https://github.com/benkao0714/_alg/blob/master/HW/halt(先由老師範例觀察而得，再用chatgpt進行改編)
+					 Alan Mathison Turing:https://github.com/benkao0714/_alg/blob/master/HW/Turing.jpg(從chatgpt查詢而來)
+習題6 請說明 P, NP, NP-Complete, P=?NP 是什麼意思:https://github.com/benkao0714/_alg/blob/master/HW/Cook.jpg(從chatgpt查詢而來)
